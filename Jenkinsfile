@@ -10,7 +10,8 @@ pipeline {
             steps {
                 script {
                     // Building the Docker image
-                    sh "docker build -t ruby-postgresql_app:latest ."
+                    sh "docker build -t $DOCKER_IMAGE ."
+
                 }
             }
         }
@@ -30,11 +31,13 @@ pipeline {
                 script {
                     // Logging into Docker Hub
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-                        sh "echo Mushuadin@77 | docker login --username sayeda77 --password-stdin"
+                       sh "echo \$DOCKERHUB_PASSWORD | docker login --username \$DOCKERHUB_USERNAME --password-stdin"
+
                     }
 
                     // Pushing the image to Docker Hub
-                    sh "docker push ruby-postgresql_app:latest"
+                    sh "docker push $DOCKER_IMAGE"
+
                 }
             }
         }

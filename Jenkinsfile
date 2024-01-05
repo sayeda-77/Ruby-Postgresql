@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'sayeda77/ ruby-postgresql_app' // Change this to your Docker Hub username and desired image name
+        DOCKER_IMAGE = 'sayeda77/ruby-postgresql_app' // Change this to your Docker Hub username and desired image name
     }
 
     stages {
@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Building the Docker image
-                    sh "docker build -t $DOCKER_IMAGE ."
+                    sh "docker build -truby-postgresql_app."
                 }
             }
         }

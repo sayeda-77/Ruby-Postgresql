@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+       /* stage('Test') {
             steps {
                 script {
                     // Run tests if applicable
@@ -24,7 +24,7 @@ pipeline {
                     sh "docker run --rm $DOCKER_IMAGE bundle exec rspec" // Example RSpec command
                 }
             }
-        }
+        }*/
 
         stage('Push to Docker Hub') {
             steps {

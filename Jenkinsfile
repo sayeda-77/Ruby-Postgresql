@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'sayeda77/ruby:latest' // Change this to your Docker Hub username and desired image name
+        DOCKER_IMAGE = 'sayeda77/ruby-app:latest' // Change this to your Docker Hub username and desired image name
     }
 
     stages {
@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Building the Docker image
-                    sh "docker build -t ruby:latest ."
+                    sh "docker build -t ruby-app:latest ."
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
                     }
 
                     // Pushing the image to Docker Hub
-                    sh "docker push ruby:latest"
+                    sh "docker push ruby-app:latest"
                 }
             }
         }
